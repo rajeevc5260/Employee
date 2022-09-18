@@ -1,0 +1,52 @@
+<!-- <div class="employeeFrm">
+  <h1>EMPLOYEE DETAILS</h1>
+  <form [formGroup]="empDetails">
+    <div class="col-lg-5">
+      <div class="mb-3">
+        <input type="text" formControlName="name" class="form-control" placeholder="Fullname" />
+      </div>
+      <div class="mb-3">
+        <input type="text" formControlName="position" class="form-control" placeholder="Position" />
+      </div>
+      <div class="mb-3">
+        <input type="text" formControlName="officeLocation" class="form-control" placeholder="Office Location" />
+      </div>
+      <div class="mb-3">
+        <input type="text" formControlName="salary" class="form-control" placeholder="Salary" />
+      </div>
+      <button type="submit" (click)="AddDetails()" value="Submit" [disabled]="empDetails.invalid" class="btn btn-primary">SUBMIT</button>
+    </div>
+  </form>
+</div> -->
+
+
+
+<div class="employeeFrm">
+  <h1>EMPLOYEE DETAILS</h1>
+  <form (ngSubmit)="AddDetails()"  #empDetailsFrm="ngForm" >
+    <div class="col-lg-5">
+      <div class="mb-3">
+        <label for="">Fullname</label>
+        <input type="text" [(ngModel)]="empDetails.name" #name="ngModel" [class.is-invalid]="name.invalid && name.touched" name="name" pattern="^[A-Z][A-Za-z\\s]*$" class="form-control" placeholder="Fullname" required="required" />
+        <small [class.d-none]="name.valid || name.untouched">*Invalid input</small>
+      </div>
+      <div class="mb-3">
+        <label for="">Position</label>
+        <input type="text" [(ngModel)]="empDetails.position" #position="ngModel" [class.is-invalid]="position.invalid && position.touched" name="position" class="form-control" placeholder="Position" required="required"/>
+        <small [class.d-none]="position.valid || position.untouched">*Invalid input</small>
+      </div>
+      <div class="mb-3">
+        <label for="">Office Location</label>
+        <input type="text" [(ngModel)]="empDetails.officeLocation" #officeLocation="ngModel" [class.is-invalid]="officeLocation.invalid && officeLocation.touched" name="officeLocation" class="form-control" placeholder="Office Location" required="required"/>
+        <small [class.d-none]="officeLocation.valid || officeLocation.untouched">*Invalid input</small>
+      </div>
+      <div class="mb-3">
+        <label for="">Salary</label>
+        <input type="text" [(ngModel)]="empDetails.salary" #salary="ngModel" [class.is-invalid]="salary.invalid && salary.touched" name="salary" class="form-control" placeholder="Salary" required="required" />
+        <small [class.d-none]="salary.valid || salary.untouched">*Invalid input</small>
+      </div>
+      <button type="submit" [disabled]="!empDetailsFrm.valid || !empDetails" class="btn btn-primary">SUBMIT</button>
+   
+    </div>
+  </form>
+</div>

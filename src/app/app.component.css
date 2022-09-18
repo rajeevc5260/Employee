@@ -1,0 +1,23 @@
+.employeeFrm h1 {
+  text-align: center;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  margin-top: 100px;
+}
+form {
+  display: flex;
+  justify-content: center;
+}
+form label {
+  margin-top: 5px;
+  color: beige;
+  font-size: 18px;
+  font-weight: 600;
+}
+form small {
+  color: rgb(179, 0, 0);
+  font-weight: 700;
+}
+form button {
+  background-color: rgb(48, 4, 88);
+}
